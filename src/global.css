@@ -262,13 +262,13 @@
 
   /* Blog Card */
   .blogs-card {
-    @apply flex items-center gap-5 p-4 rounded-xl;
+    @apply flex items-start gap-5 p-4 rounded-xl;
     @apply transition-all duration-200 border border-transparent;
   }
 
   @media (max-width: 640px) {
     .blogs-card {
-      @apply gap-3 p-3;
+      @apply flex-col gap-3 p-3;
     }
   }
 
@@ -277,13 +277,13 @@
   }
 
   .post-thumb {
-    @apply w-20 h-20 object-cover rounded-lg;
+    @apply w-32 h-20 object-cover rounded-lg;
     @apply transition-all duration-300 border border-zinc-100 flex-shrink-0;
   }
 
   @media (max-width: 640px) {
     .post-thumb {
-      @apply w-16 h-16;
+      @apply w-full h-40 rounded-lg;
     }
   }
 

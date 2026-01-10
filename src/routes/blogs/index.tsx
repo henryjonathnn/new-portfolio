@@ -27,16 +27,16 @@ export default component$(() => {
                         <img
                             src={blog.thumbnail}
                             alt={blog.title}
-                            width={80}
+                            width={128}
                             height={80}
                             class="post-thumb"
                         />
-                        <div class="flex-1 space-y-1">
-                            <div class="flex justify-between items-start">
+                        <div class="flex-1 space-y-2 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
                                 <h3 class="text-[14px] font-bold text-black leading-tight group-hover:text-blue-600 transition-colors">
                                     {blog.title}
                                 </h3>
-                                <span class="text-[10px] font-mono text-zinc-400 shrink-0 ml-4">
+                                <span class="text-[10px] font-mono text-zinc-400 shrink-0">
                                     {blog.author.date}
                                 </span>
                             </div>

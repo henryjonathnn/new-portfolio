@@ -1,10 +1,36 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Layout } from "~/components/layout/layout";
 import { Footer } from "~/components/footer/footer";
 import { TechCard } from "~/components/tech-card/tech-card";
 
 export default component$(() => {
+  const isModalOpen = useSignal(false);
+  const showToast = useSignal(false);
+
+  const triggerToast = $(() => {
+    showToast.value = true;
+    setTimeout(() => {
+      showToast.value = false;
+    }, 3000);
+  })
+
+  useVisibleTask$(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const popup = document.getElementById('contactPopup');
+      const contactBtn = event.target as HTMLElement;
+
+      if (popup && !popup.contains(contactBtn) && !contactBtn.closest('button')?.textContent?.includes('Contact')) {
+        isModalOpen.value = false;
+      }
+    };
+
+    if (isModalOpen.value) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  });
+
   const techStack = [
     { name: "Bun", src: "/svg/bun.svg", description: "Fast all-in-one JavaScript runtime", syntax: "bun run app.ts", syntaxLang: "bash" as const },
     { name: "Elysia", src: "/svg/elysia.svg", class: "elysia-icon", description: "Type-safe web framework for Bun", syntax: "app.get('/', () => 'Hi')", syntaxLang: "js" as const },
@@ -32,6 +58,18 @@ export default component$(() => {
 
   return (
     <Layout>
+      {/* Toast */}
+      <div
+        class={`fixed top-6 sm:top-10 left-1/2 -translate-x-1/2 z-[200] transition-all duration-500 w-[max-content] max-w-[90vw] ${showToast.value
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
+      >
+        <div class="bg-black/90 backdrop-blur-md text-white text-[9px] sm:text-[11px] font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-xl shadow-2xl border border-zinc-800 flex items-center gap-2 tracking-wider uppercase">
+          <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          <span class="whitespace-nowrap">Platform launching soon</span>
+        </div>
+      </div>
       <header class="flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-8 w-full">
         {/* Avatar Section */}
         <div class="w-full md:w-auto flex flex-row md:flex-col items-center md:items-end justify-between md:py-1 border-l-0 md:border-l border-zinc-100 md:pl-10 order-first md:order-last">
@@ -127,25 +165,89 @@ export default component$(() => {
             </div>
           </div>
 
+          {/* Summarize Profile */}
           <p class="text-[14px] md:text-[15px] leading-relaxed text-zinc-500 max-w-md">
-            Building
-            <span class="text-black font-semibold ml-1">
-              high-performance systems
-            </span>
-            with type-safe architectures. Focused on minimalist codebases that scale
-            effortlessly.
+            I'm a Software Engineer with 2+ years of experience. Now Building
+            <button
+              type="button"
+              onClick$={triggerToast}
+              class="text-black ml-1 underline hover:text-zinc-600 transition-colors"
+            >
+              Middleplays
+            </button>
+            {/* <a href="#">
+              <span class="text-black ml-1 underline">
+                Middleplays
+              </span>
+            </a> */}
+            , a secure digital e-commerce platform for game account trading with advanced automation. Launch soon!
           </p>
 
           <div class="flex flex-row gap-3 w-full sm:w-auto pt-2">
-            <a href="/about/" class="btn-primary">
+            <a href="/cv.pdf" class="btn-primary">
               Resume
             </a>
-            <a href="mailto:h@jonathan.com" class="btn-secondary">
+            <button
+              onClick$={() => isModalOpen.value = true}
+              class="btn-secondary"
+            >
               Contact
-            </a>
+            </button>
           </div>
         </div>
       </header>
+
+      <div class="divider"></div>
+
+      {/* Contact Popup Overlay */}
+      {isModalOpen.value && (
+        <div
+          class="fixed inset-0 z-[140]"
+          onClick$={() => isModalOpen.value = false}
+        ></div>
+      )}
+
+      {/* Contact Popup */}
+      <div
+        id="contactPopup"
+        class={`fixed bottom-24 sm:bottom-auto sm:top-24 left-1/2 -translate-x-1/2 z-[150] transition-all duration-300 ${isModalOpen.value
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 pointer-events-none translate-y-2'
+          }`}
+      >
+        <div class="bg-white/80 backdrop-blur-xl border border-zinc-200/50 shadow-2xl shadow-black/5 rounded-2xl p-2 flex flex-col sm:flex-row gap-1">
+
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20Henry%2C%20bisa%20diskusi%20terkait%20projek%3F"
+            target="_blank"
+            class="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white transition-all group"
+          >
+            <div class="w-8 h-8 flex items-center justify-center bg-zinc-950 text-white rounded-lg group-hover:scale-110 transition-transform">
+              <i class="fab fa-whatsapp text-sm"></i>
+            </div>
+            <div class="flex flex-col pr-4">
+              <span class="text-[11px] font-bold tracking-tight">WhatsApp</span>
+              <span class="text-[9px] text-zinc-400 font-medium">Fast Response</span>
+            </div>
+          </a>
+
+          <div class="hidden sm:block w-[1px] bg-zinc-200/50 my-2"></div>
+          <div class="sm:hidden h-[1px] bg-zinc-200/50 mx-2"></div>
+
+          <a
+            href="mailto:hello@hjonathan.com"
+            class="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white transition-all group"
+          >
+            <div class="w-8 h-8 flex items-center justify-center bg-white border border-zinc-200 text-zinc-950 rounded-lg group-hover:scale-110 transition-transform">
+              <i class="fa-regular fa-envelope text-sm"></i>
+            </div>
+            <div class="flex flex-col pr-4">
+              <span class="text-[11px] font-bold tracking-tight">Email</span>
+              <span class="text-[9px] text-zinc-400 font-medium">Project Inquiry</span>
+            </div>
+          </a>
+        </div>
+      </div>
 
       <div class="divider"></div>
 

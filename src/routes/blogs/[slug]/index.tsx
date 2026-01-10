@@ -77,6 +77,15 @@ export default component$(() => {
 
         {/* Header */}
         <header class="mb-12 space-y-6">
+          {/* Thumbnail */}
+          <img
+            src={blog.thumbnail}
+            alt={blog.title}
+            width={1200}
+            height={630}
+            class="w-full h-auto rounded-xl border border-zinc-100 object-cover"
+          />
+
           <div class="flex items-center gap-3 text-[11px] font-bold font-mono text-zinc-400 uppercase tracking-widest">
             <span>{blog.category}</span>
             <span class="w-1 h-1 rounded-full bg-zinc-200"></span>
