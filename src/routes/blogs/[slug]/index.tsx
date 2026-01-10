@@ -2,7 +2,6 @@ import { component$, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { useLocation } from "@builder.io/qwik-city";
 import { Layout } from "~/components/layout/layout";
-import { Footer } from "~/components/footer/footer";
 import { BenchmarkChart } from "~/components/benchmark-chart/benchmark-chart";
 import { ElysiaBenchmarkChart } from "~/components/benchmark-chart/elysia-benchmark-chart";
 import { BunComparisionBenchmarkChart } from "~/components/benchmark-chart/bun-comparison-benchmark-chart";
@@ -105,7 +104,7 @@ export default component$(() => {
         <section class="prose space-y-6">
           {blog.content.map((section, idx) => {
             const isList = section.type === "paragraph" && (section.content.includes("•") || section.content.match(/^\d+\./m));
-            const isBoldList = section.type === "paragraph" && section.content.includes("**");
+
             
             return (
               <div key={idx}>

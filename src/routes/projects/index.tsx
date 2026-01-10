@@ -14,7 +14,7 @@ export default component$(() => {
 
     // Filter and sort projects
     const filteredProjects = (() => {
-        let filtered = selectedYear.value
+        const filtered = selectedYear.value
             ? projects.filter((p) => p.year === selectedYear.value)
             : projects;
 
