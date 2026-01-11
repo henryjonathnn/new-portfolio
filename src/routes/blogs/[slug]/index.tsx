@@ -5,6 +5,9 @@ import { Layout } from "~/components/layout/layout";
 import { BenchmarkChart } from "~/components/benchmark-chart/benchmark-chart";
 import { ElysiaBenchmarkChart } from "~/components/benchmark-chart/elysia-benchmark-chart";
 import { BunComparisionBenchmarkChart } from "~/components/benchmark-chart/bun-comparison-benchmark-chart";
+import { FeeComparisonChart } from "~/components/blog-components/fee-comparison";
+import { TrustlessLogic } from "~/components/blog-components/trustless-logic";
+import { TechStackBento } from "~/components/blog-components/tech-stack-bento";
 import { getBlogBySlug, getRelatedBlogs } from "~/data/blogs";
 
 export default component$(() => {
@@ -188,6 +191,18 @@ export default component$(() => {
                     subtitle={section.benchmarkData.subtitle}
                     data={section.benchmarkData.data}
                   />
+                )}
+
+                {section.type === "component" && section.componentType === "fee-comparison" && (
+                  <FeeComparisonChart />
+                )}
+
+                {section.type === "component" && section.componentType === "trustless-logic" && (
+                  <TrustlessLogic />
+                )}
+
+                {section.type === "component" && section.componentType === "tech-stack-bento" && (
+                  <TechStackBento />
                 )}
               </div>
             );
