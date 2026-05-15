@@ -70,6 +70,7 @@ export default component$(() => {
           <span class="whitespace-nowrap">Platform launching soon</span>
         </div>
       </div>
+
       <header class="flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-8 w-full">
         {/* Avatar Section */}
         <div class="w-full md:w-auto flex flex-row md:flex-col items-center md:items-end justify-between md:py-1 border-l-0 md:border-l border-zinc-100 md:pl-10 order-first md:order-last">
@@ -82,37 +83,19 @@ export default component$(() => {
           />
 
           <div class="flex flex-col items-start md:items-end gap-4 mt-0 md:mt-auto">
-            {/* Status Badge */}
             <div class="status-badge">
               <span class="status-badge-dot"></span>
-              <span class="status-badge-text">Available</span>
+              <span class="status-badge-text">Open to Collaborate</span>
             </div>
 
-            {/* Social Links Desktop */}
             <div class="hidden md:flex gap-5 text-zinc-300">
-              <a
-                href="https://github.com/henryjonathnn"
-                target="_blank"
-                class="social-link"
-                title="GitHub"
-                aria-label="GitHub"
-              >
+              <a href="https://github.com/henryjonathnn" target="_blank" class="social-link" title="GitHub" aria-label="GitHub">
                 <i class="fab fa-github text-lg"></i>
               </a>
-              <a
-                href="https://linkedin.com/in/henryjonathn" target="_blank"
-                class="social-link"
-                title="LinkedIn"
-                aria-label="LinkedIn"
-              >
+              <a href="https://linkedin.com/in/henryjonathn" target="_blank" class="social-link" title="LinkedIn" aria-label="LinkedIn">
                 <i class="fab fa-linkedin-in text-lg"></i>
               </a>
-              <a
-                href="https://instagram.com/henryjonathnn" target="_blank"
-                class="social-link"
-                title="Instagram"
-                aria-label="Instagram"
-              >
+              <a href="https://instagram.com/henryjonathnn" target="_blank" class="social-link" title="Instagram" aria-label="Instagram">
                 <i class="fab fa-instagram text-lg"></i>
               </a>
             </div>
@@ -128,7 +111,7 @@ export default component$(() => {
 
             <div class="flex flex-col gap-2 text-sm font-medium text-zinc-400">
               <span class="flex items-center gap-1.5">
-                <i class="fas fa-code text-[10px]"></i> Software Engineer
+                <i class="fas fa-briefcase text-[10px]"></i> Sales Executive · Builder
               </span>
 
               <div class="flex items-center gap-3">
@@ -136,28 +119,13 @@ export default component$(() => {
                   <i class="fas fa-location-dot text-[10px]"></i> Nganjuk, ID
                 </span>
                 <div class="flex md:hidden items-center gap-3 border-l border-zinc-200 pl-3 ml-1 text-zinc-300">
-                  <a
-                    href="https://github.com/henryjonathnn" target="_blank"
-                    class="hover:text-black transition-colors"
-                    title="GitHub"
-                    aria-label="GitHub"
-                  >
+                  <a href="https://github.com/henryjonathnn" target="_blank" class="hover:text-black transition-colors" title="GitHub" aria-label="GitHub">
                     <i class="fab fa-github text-[14px]"></i>
                   </a>
-                  <a
-                    href="https://linkedin.com/in/henryjonathn" target="_blank"
-                    class="hover:text-black transition-colors"
-                    title="LinkedIn"
-                    aria-label="LinkedIn"
-                  >
+                  <a href="https://linkedin.com/in/henryjonathn" target="_blank" class="hover:text-black transition-colors" title="LinkedIn" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in text-[14px]"></i>
                   </a>
-                  <a
-                    href="https://instagram.com/henryjonathnn" target="_blank"
-                    class="hover:text-black transition-colors"
-                    title="Instagram"
-                    aria-label="Instagram"
-                  >
+                  <a href="https://instagram.com/henryjonathnn" target="_blank" class="hover:text-black transition-colors" title="Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram text-[14px]"></i>
                   </a>
                 </div>
@@ -165,9 +133,8 @@ export default component$(() => {
             </div>
           </div>
 
-          {/* Summarize Profile */}
           <p class="text-[14px] md:text-[15px] leading-relaxed text-zinc-500 max-w-md">
-            I'm a Software Engineer with 2+ years of experience. Now Building
+            Sales Executive at <span class="text-black font-semibold">Astra Otoparts</span>, while building
             <button
               type="button"
               onClick$={triggerToast}
@@ -175,12 +142,7 @@ export default component$(() => {
             >
               Middleplays
             </button>
-            {/* <a href="#">
-              <span class="text-black ml-1 underline">
-                Middleplays
-              </span>
-            </a> */}
-            , a secure digital e-commerce platform for game account trading with advanced automation. Launch soon!
+            {" "}— a secure game account trading platform with automated escrow. Programming is leverage, not just a career.
           </p>
 
           <div class="flex flex-row gap-3 w-full sm:w-auto pt-2">
@@ -216,9 +178,8 @@ export default component$(() => {
           }`}
       >
         <div class="bg-white/80 backdrop-blur-xl border border-zinc-200/50 shadow-2xl shadow-black/5 rounded-2xl p-2 flex flex-col sm:flex-row gap-1">
-
           <a
-            href="https://wa.me/6281234567890?text=Halo%20Henry%2C%20bisa%20diskusi%20terkait%20projek%3F"
+            href="https://wa.me/6281234567890?text=Hi%20Henry%2C%20can%20we%20discuss%3F"
             target="_blank"
             class="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white transition-all group"
           >
@@ -282,11 +243,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Henry Jonathan — Software Engineer",
+  title: "Henry Jonathan — Sales Executive & Builder",
   meta: [
     {
       name: "description",
-      content: "Software Engineer building high-performance systems with type-safe architectures",
+      content: "Sales Executive at Astra Otoparts, building Middleplays — a secure game account trading platform with automated escrow.",
     },
   ],
 };
