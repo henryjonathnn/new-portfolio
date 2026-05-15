@@ -111,12 +111,12 @@ export default component$(() => {
 
             <div class="flex flex-col gap-2 text-sm font-medium text-zinc-400">
               <span class="flex items-center gap-1.5">
-                <i class="fas fa-briefcase text-[10px]"></i> Sales Executive · Builder
+                <i class="fas fa-briefcase text-[10px]"></i> Sales Executive
               </span>
 
               <div class="flex items-center gap-3">
                 <span class="flex items-center gap-1.5">
-                  <i class="fas fa-location-dot text-[10px]"></i> Nganjuk, ID
+                  <i class="fas fa-location-dot text-[10px]"></i> Surabaya, ID
                 </span>
                 <div class="flex md:hidden items-center gap-3 border-l border-zinc-200 pl-3 ml-1 text-zinc-300">
                   <a href="https://github.com/henryjonathnn" target="_blank" class="hover:text-black transition-colors" title="GitHub" aria-label="GitHub">
@@ -142,7 +142,7 @@ export default component$(() => {
             >
               Middleplays
             </button>
-            {" "}— a secure game account trading platform with automated escrow. Programming is leverage, not just a career.
+            {" "}, a secure game account trading platform with automated escrow. Programming is leverage, not just a career.
           </p>
 
           <div class="flex flex-row gap-3 w-full sm:w-auto pt-2">
