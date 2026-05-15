@@ -8,7 +8,7 @@ export default component$(() => {
         {
             title: "Sales Executive",
             company: "Astra Otoparts",
-            period: "Jan 2026 — Present",
+            period: "May 2026 — Present",
             description: "Building a career in the sales division at Astra Otoparts, a subsidiary of Astra International. Focused on sales strategy, relationship building, and market development. Bringing a data-driven approach and structured problem-solving from an engineering background into a sales context.",
             tags: ["Sales Strategy", "B2B", "Relationship Building", "Market Development", "Data-Driven"],
         },
@@ -16,7 +16,7 @@ export default component$(() => {
             title: "Founder & Builder",
             company: "Middleplays (Side Project)",
             period: "Jan 2026 — Present",
-            description: "Independently building Middleplays—an e-commerce and escrow platform for game account trading. Architecting the system, designing business workflows, and implementing end-to-end transaction automation. Treating programming as leverage, not just a day job.",
+            description: "Independently building Middleplays, an e-commerce and escrow platform for game account trading. Architecting the system, designing business workflows, and implementing end-to-end transaction automation. Treating programming as leverage, not just a day job.",
             tags: ["Bun", "Elysia", "PostgreSQL", "BullMQ", "Redis", "Qwik", "System Design"],
         },
         {
@@ -53,7 +53,7 @@ export default component$(() => {
             <header class="space-y-4 w-full">
                 <h1 class="text-2xl font-bold tracking-tighter">About Me</h1>
                 <p class="text-[14px] leading-relaxed text-zinc-600 max-w-2xl">
-                    A <span class="text-black font-semibold">Sales Executive at Astra Otoparts</span> with a 4-year background in IT. I view programming as more than just a career track—it's an incredible leverage when paired with business and sales acumen. Outside of my day job, I'm building{" "}
+                    A <span class="text-black font-semibold">Sales Executive at Astra Otoparts</span> with a 4-year background in IT. I view programming as more than just a career track, it's an incredible leverage when paired with business and sales acumen. Outside of my day job, I'm building{" "}
                     <span class="underline text-black">Middleplays</span>, a game account trading platform designed from the ground up as a long-term passive income stream.
                 </p>
             </header>
